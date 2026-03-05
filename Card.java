@@ -1,4 +1,4 @@
-package Poker-Emulasjon;
+package blackjack;
 
 public class Card {
     private int value;
@@ -10,11 +10,12 @@ public class Card {
         this.value = value;
         this.suit = suit;
         this.cardString = "" + suit + value;
+        this.visible = visible;
     }
 
-    public boolean getVisibility {return visible;}
+    public boolean getVisibility() {return visible;}
 
-    public void setInvisble {visible = false;}
+    public void setInvisble() {visible = false;}
 
-    public void setVisible {visible = true;}
+    public void setVisible() {visible = true;}
 }
