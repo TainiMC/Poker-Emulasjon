@@ -25,6 +25,7 @@ public class Player {
 
     public void stand() {
         //Must tell table to end turn and go to next player
+        //Test commit
 
 
     }
