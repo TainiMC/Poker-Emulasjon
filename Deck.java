@@ -25,13 +25,9 @@ public class Deck { //Always 52 cards in a deck
     }
 
 
-    public void shuffleDeck() {
-
-         this.deck = Collections.shuffle(deck);
-    }
+    public void shuffleDeck() {Collections.shuffle(deck);}
 
     public Card pullTopCard() {
-
         Card pulledCard = deck.get(deck.size() - 1);
         deck.remove(pulledCard); //Never more than one of any specific card
 
@@ -41,3 +37,4 @@ public class Deck { //Always 52 cards in a deck
     public int getSize() {return deck.size();}
 
 }
+//Testing magit
