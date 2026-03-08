@@ -13,9 +13,11 @@ public class Deck { //Always 52 cards in a deck
     public Deck () {
 
             char[] suits =  {'h', 'd', 'c', 's'}; //Heart, diamonds, clubs, spades
-            for (int i = 1, i < 14, i++ ) {
-                for (char suit : suits) {
-                    deck.add(new Card(i, suit, false));
+            for(int i = 0; i < 4; i++){ //How many decks
+                for (int j = 1; j < 14; i++ ) { //Value, ace = 1, king = 13
+                    for (char suit : suits) {
+                        deck.add(new Card(j, suit, false));
+                    }
                 }
             }
 
