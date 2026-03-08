@@ -18,4 +18,5 @@ public class Card {
     public void setInvisble() {visible = false;}
 
     public void setVisible() {visible = true;}
+
 }
