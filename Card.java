@@ -19,4 +19,6 @@ public class Card {
 
     public void setVisible() {visible = true;}
 
+    public int getValue() {return value;}
+
 }
