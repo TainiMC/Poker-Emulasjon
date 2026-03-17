@@ -4,17 +4,24 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Player {
+<<<<<<< HEAD
     private List<Card> hand = new ArrayList<>();
     private int chips;
 
     public Player (int buyIn) {
         this.chips = buyIn;
+=======
+    private List<Card> hand;
+
+    public Player () {
+>>>>>>> 0836e76 (My message)
 
     }
     public boolean checkBust() {
         int total = hand.stream()
             .mapToInt(Card::getValue)
             .sum();
+<<<<<<< HEAD
         return total > 21; //True = busted
         //Must also check for ace = 1 or 11
     }
@@ -41,6 +48,12 @@ public class Player {
         }
 
 
+=======
+        return 21 < total;
+    }
+
+    public void hit() {
+>>>>>>> 0836e76 (My message)
         //pullTopCard pulls top card, removes it from Deck and returns it
         //How do we make sure every instance of player works with the same deck?
         //If checkBust ret True  -> call stand()

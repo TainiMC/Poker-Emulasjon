@@ -13,6 +13,7 @@ import java.util.List;
     - Hit -> check < 21 -> call itself if true, continue to next player if false
     - Stand -> continue to next player
  - Field for storing cards of the dealer
+<<<<<<< HEAD
 
 */
 public class Table {
@@ -56,4 +57,15 @@ public class Table {
 
     }
 
+=======
+*/
+
+public class Table {
+    private List<Player> playerList;
+
+   public Table (List<Player> playerList) {
+       this.playerList = playerList;
+
+   } 
+>>>>>>> 0836e76 (My message)
 }
