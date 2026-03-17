@@ -25,14 +25,14 @@ public class Table {
        this.playerList = playerList;
        this.tableDeck = new Deck();
 
-   }
+    }
     public void askPlayers() {
         if (whichPlayer < playerList.size()) { //Checks if we should ask player or draw for dealer
 
             Player currentPlayer = playerList.get(whichPlayer);
             currentPlayer.hitOrStand(tableDeck);
-
             whichPlayer++;
+
         } else {
             this.dealerDraw();
             whichPlayer = 0;
@@ -42,16 +42,18 @@ public class Table {
     public void dealerDraw() {
 
         while (!checkBust()) {
-            tableDeck.pullTopCard();
+            Card freshCard = tableDeck.pullTopCard();
+            dealerHand.add(freshCard);
         }
     }
 
-    public boolean checkBust() {
-        int total = dealerHand.stream().mapToInt(Card::getValue).sum();
-        return total > 17; //True = busted
-        //Must also check for ace = 1 or 11
+    public boolean dealerHit() {
+        int score = dealerHand.stream()
+            .mapToInt(Card::getValue)
+            .sum();
+        int aceScore = dealerHand.stream()
+            .mapToInt(Card::returnAce)
+            .sum();
+        //True = hit, false = stand
     }
-
-
-
-    }
+}
