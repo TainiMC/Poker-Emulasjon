@@ -13,13 +13,47 @@ import java.util.List;
     - Hit -> check < 21 -> call itself if true, continue to next player if false
     - Stand -> continue to next player
  - Field for storing cards of the dealer
-*/
 
+*/
 public class Table {
     private List<Player> playerList;
+    private List<Card> dealerHand;
+    private int whichPlayer = 0;
+    private Deck tableDeck;
 
-   public Table (List<Player> playerList) {
+    public Table (List<Player> playerList) {
        this.playerList = playerList;
+       this.tableDeck = new Deck();
 
-   } 
+    }
+    public void askPlayers() {
+        if (whichPlayer < playerList.size()) { //Checks if we should ask player or draw for dealer
+
+            Player currentPlayer = playerList.get(whichPlayer);
+            currentPlayer.hitOrStand(tableDeck);
+            whichPlayer++;
+
+        } else {
+            this.dealerDraw();
+            whichPlayer = 0;
+        }
+    }
+
+    public void dealerDraw() {
+
+        while (!checkBust()) {
+            Card freshCard = tableDeck.pullTopCard();
+            dealerHand.add(freshCard);
+        }
+    }
+
+    public boolean dealerHit() {
+        int score = dealerHand.stream()
+            .mapToInt(Card::getValue)
+            .sum();
+        int aceScore = dealerHand.stream()
+            .mapToInt(Card::returnAce)
+            .sum();
+        //True = hit, false = stand
+    }
 }
