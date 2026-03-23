@@ -17,7 +17,7 @@ import java.util.List;
 */
 public class Table {
     private List<Player> playerList;
-    private List<Card> dealerHand;
+    private List<Card> dealerHand = new ArrayList<>();
     private int whichPlayer = 0;
     private Deck tableDeck;
 
@@ -26,6 +26,50 @@ public class Table {
        this.tableDeck = new Deck();
 
     }
+
+    public void initGame() {
+        for (Player player : playerList) {
+            player.resetBusted();
+            player.resetHand();
+        }
+
+        for (Player player : playerList) {
+           player.hit(tableDeck);
+        }
+
+       Card card1 = tableDeck.pullTopCard();
+       dealerHand.add(card1); //Draws one card face up for dealer
+
+       for (Player player : playerList) {
+           player.hit(tableDeck);
+       }
+       //Pulls two cards for every player, face up
+       //Two loops b.c cards must be dealt one at a time
+
+       Card card2 = tableDeck.pullTopCard();
+       card2.setInvisble();
+       dealerHand.add(card2);
+       //Draws one card face down for dealer
+
+
+
+
+        askPlayers(); //Asks every player to hit or stand until it is dealers turn
+
+        for (Player player : playerList) {
+            if (!player.returnBusted()) {
+                int playerScore = player.getMaxScore();
+                int dealerScore = this.getMaxScore();
+
+                if (playerScore > dealerScore) {player.registerWin();}
+
+            } 
+        }
+        for (Player player : playerList) {
+            System.out.println(player.toString());
+        }
+    }
+
     public void askPlayers() {
         if (whichPlayer < playerList.size()) { //Checks if we should ask player or draw for dealer
 
@@ -54,6 +98,35 @@ public class Table {
         int aceScore = dealerHand.stream()
             .mapToInt(Card::returnAce)
             .sum();
+
+        if (score <= 21 || (score + aceScore) <= 21) {
+            return true;
+        } else { return false; }
         //True = hit, false = stand
+    }
+
+    public int getMaxScore() {
+        int score = dealerHand.stream()
+            .mapToInt(Card::getValue)
+            .sum();
+        int aceScore = dealerHand.stream()
+            .mapToInt(Card::returnAce)
+            .sum();
+
+        if ((score + aceScore) < 21) {
+            return score + aceScore;
+        } else {
+            return score;
+        }
+    }
+
+    public boolean checkBust() {
+        int total = dealerHand.stream()
+            .mapToInt(Card::getValue)
+            .sum();
+
+        return total <= 21;
+        //True = busted
+        //Must also check for ace = 1 or 11
     }
 }
