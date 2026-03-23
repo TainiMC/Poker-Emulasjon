@@ -92,8 +92,8 @@ public class App extends Application {
         //stage.setX(50);
         //stage.setY(50);
         stage.setFullScreen(true);
-        //stage.setFullScreenExitHint("YOU CAN'T ESCAPE unless you press q");
-        //stage.setFullScreenExitKeyCombination(KeyCombination.valueOf("q"));
+        stage.setFullScreenExitHint("YOU CAN'T ESCAPE unless you press q");
+        stage.setFullScreenExitKeyCombination(KeyCombination.valueOf("q"));
 
         stage.setScene(scene);
         stage.show();
