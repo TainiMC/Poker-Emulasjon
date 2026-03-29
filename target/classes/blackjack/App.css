@@ -1,0 +1,12 @@
+.root {
+    background-color: #111111;
+    -fx-background-color: #111111;
+}
+
+.button {
+    font-size: 60;
+    -fx-font-size: 60;
+    font-family: "Lucida Console";
+    -fx-font-family: "Lucida Console";
+    -fx-alignment: center;
+}

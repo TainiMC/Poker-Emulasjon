@@ -1,4 +1,0 @@
-Fix project layout/structure
-  -Add module-info.java
-Make tests
-Make JavaFX interface
