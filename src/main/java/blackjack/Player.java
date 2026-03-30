@@ -16,7 +16,7 @@ public class Player {
         int total = hand.stream()
             .mapToInt(Card::getValue)
             .sum();
-            return total < 21; //True = busted
+            return total > 21; //True = busted
         //Must also check for ace = 1 or 11
     }
 
