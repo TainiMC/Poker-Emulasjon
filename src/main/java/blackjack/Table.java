@@ -28,6 +28,7 @@ public class Table {
     }
 
     public void initGame() {
+        dealerHand.clear();
         for (Player player : playerList) {
             player.resetBusted();
             player.resetHand();
@@ -85,13 +86,16 @@ public class Table {
 
     public void dealerDraw() {
 
-        while (!checkBust()) {
+        while (!checkBust() && getMaxScore() < 17) {
             Card freshCard = tableDeck.pullTopCard();
             dealerHand.add(freshCard);
         }
     }
 
-    public boolean dealerHit() {
+
+            //When do I use this? Is it not very simlar to delarDraw() ? / Tim
+
+/*     public boolean dealerHit() {
         int score = dealerHand.stream()
             .mapToInt(Card::getValue)
             .sum();
@@ -103,7 +107,10 @@ public class Table {
             return true;
         } else { return false; }
         //True = hit, false = stand
-    }
+    } */
+
+
+
 
     public int getMaxScore() {
         int score = dealerHand.stream()
@@ -113,7 +120,7 @@ public class Table {
             .mapToInt(Card::returnAce)
             .sum();
 
-        if ((score + aceScore) < 21) {
+        if ((score + aceScore) <= 21) {
             return score + aceScore;
         } else {
             return score;

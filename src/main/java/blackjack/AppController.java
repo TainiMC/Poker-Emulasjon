@@ -6,35 +6,35 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class AppController {
 
     @FXML private Button quitGameButton;
-    @FXML private AnchorPane anchorMenu;
-    @FXML private AnchorPane anchorGame;
-    @FXML private AnchorPane anchorSettings;
+    @FXML private BorderPane borderPaneMenu;
+    @FXML private BorderPane borderPaneGame;
+    @FXML private BorderPane borderPaneSettings;
 
     @FXML
     public void StartGame(ActionEvent event) {
-        anchorMenu.setVisible(false);
-        anchorGame.setVisible(true);
-        anchorSettings.setVisible(false);
+        borderPaneMenu.setVisible(false);
+        borderPaneGame.setVisible(true);
+        borderPaneSettings.setVisible(false);
     }
 
     @FXML
     public void Settings(ActionEvent event) {
-        anchorMenu.setVisible(false);
-        anchorGame.setVisible(false);
-        anchorSettings.setVisible(true);
+        borderPaneMenu.setVisible(false);
+        borderPaneGame.setVisible(false);
+        borderPaneSettings.setVisible(true);
     }
 
     @FXML
     public void Menu(ActionEvent event) {
-        anchorMenu.setVisible(true);
-        anchorGame.setVisible(false);
-        anchorSettings.setVisible(false);
+        borderPaneMenu.setVisible(true);
+        borderPaneGame.setVisible(false);
+        borderPaneSettings.setVisible(false);
     }
 
     @FXML
@@ -45,7 +45,7 @@ public class AppController {
         alert.setContentText("Probably only one bet away from a million...");
 
         if (alert.showAndWait().get() == ButtonType.OK) {
-            Stage stage = (Stage) anchorMenu.getScene().getWindow();
+            Stage stage = (Stage) borderPaneMenu.getScene().getWindow();
             stage.close();
         }
     }
