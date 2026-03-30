@@ -125,7 +125,7 @@ public class Table {
             .mapToInt(Card::getValue)
             .sum();
 
-        return total <= 21;
+        return total > 21;
         //True = busted
         //Must also check for ace = 1 or 11
     }
