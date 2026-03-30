@@ -8,16 +8,28 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
+import java.util.List;
 
 public class AppController {
 
-    @FXML private Button quitGameButton;
     @FXML private BorderPane borderPaneMenu;
     @FXML private BorderPane borderPaneGame;
     @FXML private BorderPane borderPaneSettings;
 
+    @FXML private Button quitGameButton;
+    @FXML private Button startButton;
+    @FXML private Button hitButton;
+    @FXML private Button standButton;
+
+    @FXML private Label dealerLabel;
+
+    
+
     @FXML
-    public void StartGame(ActionEvent event) {
+    public void StartNewGame(ActionEvent event) {
         borderPaneMenu.setVisible(false);
         borderPaneGame.setVisible(true);
         borderPaneSettings.setVisible(false);
@@ -48,5 +60,27 @@ public class AppController {
             Stage stage = (Stage) borderPaneMenu.getScene().getWindow();
             stage.close();
         }
+    }
+
+    @FXML
+    public void Start(ActionEvent event) {
+        table.initGame();
+
+        startButton.setVisible(false);
+        hitButton.setVisible(true);
+        standButton.setVisible(true);
+        dealerLabel.setVisible(true);
+
+    }
+
+
+    @FXML
+    public void onHit(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void onStand(ActionEvent event) {
+        
     }
 }

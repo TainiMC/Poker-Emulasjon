@@ -72,6 +72,11 @@ public class Player {
         }
     }
 
+    //I need a getter for the players hand /Tim
+    public List<Card> getHand() {
+        return hand;
+    }
+
     public void stand() {
         //Must tell table to end turn and go to next player
 

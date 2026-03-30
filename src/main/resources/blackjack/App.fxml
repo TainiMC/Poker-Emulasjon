@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -15,7 +14,7 @@
 
 <StackPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="blackjack.AppController">
    <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="backgroundPane" StackPane.alignment="CENTER" />
-   <BorderPane fx:id="borderPaneMenu" visible="false">
+   <BorderPane fx:id="borderPaneMenu">
       <top>
             <Label prefHeight="106.0" prefWidth="344.0" styleClass="labels" text="Blackjack" textAlignment="CENTER" underline="true" BorderPane.alignment="CENTER">
                 <font>
@@ -27,9 +26,9 @@
             </Label>
       </top>
       <center>
-         <VBox maxHeight="-Infinity" maxWidth="200.0" spacing="25.0" BorderPane.alignment="CENTER">
+         <VBox maxHeight="-Infinity" maxWidth="200.0" prefHeight="295.0" prefWidth="200.0" spacing="25.0" BorderPane.alignment="CENTER">
             <children>
-                  <Button fx:id="NewGameButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#StartGame" prefHeight="45.0" text="New Game" textAlignment="CENTER">
+                  <Button fx:id="NewGameButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#StartNewGame" prefHeight="45.0" text="New Game" textAlignment="CENTER">
                   <VBox.margin>
                      <Insets />
                   </VBox.margin>
@@ -55,65 +54,56 @@
          </VBox>
       </center>
    </BorderPane>
-   <BorderPane fx:id="borderPaneGame">
+   <BorderPane fx:id="borderPaneGame" visible="false">
       <bottom>
          <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
             <children>
-               <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="100.0" prefWidth="200.0">
+               <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="100.0">
                   <children>
-                     <ImageView fx:id="playerCard1" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="playerCard1" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
-                        <image>
-                           <Image url="@textures/Deadpool/CB.jpg" />
-                        </image>
                      </ImageView>
-                     <ImageView fx:id="playerCard2" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="playerCard2" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
-                        <image>
-                           <Image url="@textures/Deadpool/CB.jpg" />
-                        </image>
                      </ImageView>
-                     <ImageView fx:id="playerCard3" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="playerCard3" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
-                        <image>
-                           <Image url="@textures/Deadpool/CB.jpg" />
-                        </image>
                      </ImageView>
-                     <ImageView fx:id="playerCard4" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="playerCard4" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
-                        <image>
-                           <Image url="@textures/Deadpool/CB.jpg" />
-                        </image>
                      </ImageView>
-                     <ImageView fx:id="playerCard5" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="playerCard5" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
-                        <image>
-                           <Image url="@textures/Deadpool/CB.jpg" />
-                        </image>
                      </ImageView>
                   </children>
                </HBox>
                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                   <children>
-                     <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="1000.0" text="HIT">
+                     <Button fx:id="hitButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onHit" prefWidth="1000.0" text="HIT" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
+                        <font>
+                           <Font name="Arial Black" size="30.0" />
+                        </font>
                      </Button>
-                     <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="1000.0" text="STAND">
+                     <Button fx:id="standButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onStand" prefWidth="1000.0" text="STAND" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
+                        <font>
+                           <Font name="Arial Black" size="30.0" />
+                        </font>
                      </Button>
                   </children>
                </HBox>
@@ -123,7 +113,7 @@
       <top>
          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
             <children>
-               <Label contentDisplay="CENTER" text="THE DEALER" textAlignment="CENTER">
+               <Label fx:id="dealerLabel" contentDisplay="CENTER" text="THE DEALER" textAlignment="CENTER" visible="false">
                   <font>
                      <Font name="Berlin Sans FB Demi Bold" size="32.0" />
                   </font>
@@ -131,47 +121,32 @@
                      <Insets />
                   </VBox.margin>
                </Label>
-               <HBox maxWidth="-Infinity" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="100.0" spacing="5.0">
                   <children>
-                     <ImageView fx:id="dealerCard1" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="dealerCard1" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
-                        <image>
-                           <Image url="@textures/Deadpool/CB.jpg" />
-                        </image>
                      </ImageView>
-                     <ImageView fx:id="dealerCard2" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="dealerCard2" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
-                        <image>
-                           <Image url="@textures/Deadpool/CB.jpg" />
-                        </image>
                      </ImageView>
-                     <ImageView fx:id="dealerCard3" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="dealerCard3" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
-                        <image>
-                           <Image url="@textures/Deadpool/CB.jpg" />
-                        </image>
                      </ImageView>
-                     <ImageView fx:id="dealerCard4" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="dealerCard4" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
-                        <image>
-                           <Image url="@textures/Deadpool/CB.jpg" />
-                        </image>
                      </ImageView>
-                     <ImageView fx:id="dealerCard5" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="dealerCard5" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
-                        <image>
-                           <Image url="@textures/Deadpool/CB.jpg" />
-                        </image>
                      </ImageView>
                   </children>
                   <padding>
@@ -181,6 +156,13 @@
             </children>
          </VBox>
       </top>
+      <center>
+         <Button fx:id="startButton" mnemonicParsing="false" onAction="#Start" prefHeight="219.0" prefWidth="245.0" text="START" BorderPane.alignment="CENTER">
+            <font>
+               <Font name="Arial Black" size="48.0" />
+            </font>
+         </Button>
+      </center>
    </BorderPane>
    <BorderPane fx:id="borderPaneSettings" visible="false">
       <bottom>

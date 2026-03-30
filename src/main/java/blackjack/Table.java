@@ -19,7 +19,7 @@ public class Table {
     private List<Player> playerList;
     private List<Card> dealerHand = new ArrayList<>();
     private int whichPlayer = 0;
-    private Deck tableDeck;
+    public Deck tableDeck; //Had to make this public so I can acces it //Tim
 
     public Table (List<Player> playerList) {
        this.playerList = playerList;
@@ -125,6 +125,13 @@ public class Table {
         } else {
             return score;
         }
+    }
+
+    
+
+    //Needed a getter for the dealers hand /Tim
+    public List<Card> getDealerHand() {
+        return dealerHand;
     }
 
     public boolean checkBust() {
