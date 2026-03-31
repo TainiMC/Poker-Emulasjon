@@ -26,7 +26,18 @@ public class AppController {
 
     @FXML private Label dealerLabel;
 
-    
+    @FXML private ImageView playerCard1, playerCard2, playerCard3, playerCard4, playerCard5;
+    @FXML private ImageView dealerCard1, dealerCard2, dealerCard3, dealerCard4, dealerCard5;
+
+    private Table table;
+    private Player player;
+    private ImageView[] playerCards;
+    private ImageView[] dealerCards;
+
+    public void initialize() {
+        playerCards = new ImageView[]{playerCard1, playerCard2, playerCard3, playerCard4, playerCard5};
+        dealerCards = new ImageView[]{dealerCard1, dealerCard2, dealerCard3, dealerCard4, dealerCard5};
+    }
 
     @FXML
     public void StartNewGame(ActionEvent event) {
@@ -64,15 +75,37 @@ public class AppController {
 
     @FXML
     public void Start(ActionEvent event) {
+        player = new Player(500);
+        table = new Table(List.of(player));
         table.initGame();
 
         startButton.setVisible(false);
         hitButton.setVisible(true);
         standButton.setVisible(true);
         dealerLabel.setVisible(true);
+        table.initGame();
 
+        updateDisplay();
     }
 
+    private void updateDisplay() {
+        updateCardRow(player.getHand(), playerCards);
+        updateCardRow(table.getDealerHand(), dealerCards);
+    }
+
+    private void updateCardRow(List<Card> hand, ImageView[] views) {
+        for (int i = 0; i < views.length; i++) {
+            if (i < hand.size()) {
+                Card card = hand.get(i);
+                String path = "/blackjack/textures/2020/" + card.getCardString() + ".jpg";
+                Image img = new Image(getClass().getResourceAsStream(path));
+                views[i].setImage(img);
+                views[i].setVisible(true);
+            }     else {
+                views[i].setVisible(false);
+            }
+        }
+    } 
 
     @FXML
     public void onHit(ActionEvent event) {
