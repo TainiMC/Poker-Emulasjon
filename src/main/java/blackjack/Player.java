@@ -47,8 +47,8 @@ public class Player {
             this.busted = true;
            stand();
         }/*  else {
-            hitOrStand(deck); */ //remove this, it fucks up the javafx /Tim
-        }
+            hitOrStand(deck);  //remove this, it fucks up the javafx /Tim
+        }*/
 
 
 

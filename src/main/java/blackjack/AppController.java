@@ -101,7 +101,13 @@ public class AppController {
         for (int i = 0; i < views.length; i++) {
             if (i < hand.size()) {
                 Card card = hand.get(i);
-                String cardTexture = "/blackjack/textures/" + this.textureName + "/" + card.getCardString() + ".jpg";
+                String cardTexture;
+                if (card.getVisibility()) {
+                cardTexture = "/blackjack/textures/" + this.textureName + "/" + card.getCardString() + ".jpg";
+                }
+                else {
+                    cardTexture = "/blackjack/textures/" + this.textureName + "/CB.jpg";
+                }
                 Image img = new Image(getClass().getResourceAsStream(cardTexture));
                 views[i].setImage(img);
                 views[i].setVisible(true);
@@ -113,16 +119,27 @@ public class AppController {
 
     
 
+public boolean hitOrStand;
+public boolean buttonHit = false;
 
     @FXML
     public  void  onHit(ActionEvent event) {
+        this.buttonHit = true;
+        this.hitOrStand = true;
+
         player.hit(table.getTableDeck());
 
         updateDisplay();
+        if (table.checkBust()) {
+
+        }
     }
 
     @FXML
     public void onStand(ActionEvent event) {
+        this.buttonHit = true;
+
+        table.dealerDraw();
         
     }
 

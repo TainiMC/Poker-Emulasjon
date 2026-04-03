@@ -55,7 +55,8 @@ public class Table {
 
 
 
-        askPlayers(); //Asks every player to hit or stand until it is dealers turn
+       //  askPlayers(); //Asks every player to hit or stand until it is dealers turn
+       // I made this a comment because the game will try to play itself out automatically the moment you click START / Tim
 
         for (Player player : playerList) {
             if (!player.returnBusted()) {
