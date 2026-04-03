@@ -18,7 +18,6 @@ import java.util.List;
 public class Table {
     private List<Player> playerList;
     private List<Card> dealerHand = new ArrayList<>();
-    private int whichPlayer = 0;
     public Deck tableDeck; //Had to make this public so I can acces it //Tim
 
     public Table (List<Player> playerList) {
@@ -55,8 +54,7 @@ public class Table {
 
 
 
-       //  askPlayers(); //Asks every player to hit or stand until it is dealers turn
-       // I made this a comment because the game will try to play itself out automatically the moment you click START / Tim
+        askPlayers(); //Asks every player to hit or stand until it is dealers turn
 
         for (Player player : playerList) {
             if (!player.returnBusted()) {
@@ -73,19 +71,12 @@ public class Table {
     }
 
     public void askPlayers() {
-        if (whichPlayer < playerList.size()) { //Checks if we should ask player or draw for dealer
+            playerList.get(0).hitOrStand(tableDeck);
 
-            Player currentPlayer = playerList.get(whichPlayer);
-            currentPlayer.hitOrStand(tableDeck);
-            whichPlayer++;
-
-        } else {
-            this.dealerDraw();
-            whichPlayer = 0;
-        }
-    }
+            }
 
     public void dealerDraw() {
+        dealerHand.get(1).setVisible(); //Snu kort 2
 
         while (getMaxScore() < 21) {
             Card freshCard = tableDeck.pullTopCard();
@@ -148,4 +139,20 @@ public class Table {
         //True = busted
         //Must also check for ace = 1 or 11
     }
+
+    public String showResult() {
+            if (checkBust()) {
+                return "Table busted";
+            }
+
+            if (playerList.get(0).checkBust()) {
+                return "You busted";
+            }
+
+            if (getMaxScore() < playerList.get(0).getMaxScore()) { //Når spilleren vinner
+                return "You won!";
+            } else {
+                return "You lost!";
+            }
+        }
 }

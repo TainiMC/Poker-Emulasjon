@@ -21,12 +21,6 @@ public class Player {
     }
 
     public void hitOrStand(Deck deck) {
-        //Ask JavaFX for input
-        //Get info from javaFX
-        while (!buttonHit) {
-            if ()
-        }
-        buttonHit = false;
 
     }
 
@@ -60,7 +54,6 @@ public class Player {
         //How do we make sure every instance of player works with the same deck?
         //If checkBust ret True  -> call stand()
 
-    }
     public int getMaxScore() {
         int score = hand.stream()
             .mapToInt(Card::getValue)
