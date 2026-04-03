@@ -23,7 +23,11 @@ public class Player {
     public void hitOrStand(Deck deck) {
         //Ask JavaFX for input
         //Get info from javaFX
-        if (true) { this.hit(deck);} else {this.stand();}
+        while (!buttonHit) {
+            if ()
+        }
+        buttonHit = false;
+
     }
 
     public void resetBusted() {

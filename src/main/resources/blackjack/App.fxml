@@ -60,27 +60,27 @@
             <children>
                <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="100.0">
                   <children>
-                     <ImageView fx:id="playerCard1" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="playerCard1" fitHeight="252.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
                      </ImageView>
-                     <ImageView fx:id="playerCard2" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="playerCard2" fitHeight="252.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
                      </ImageView>
-                     <ImageView fx:id="playerCard3" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="playerCard3" fitHeight="252.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
                      </ImageView>
-                     <ImageView fx:id="playerCard4" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="playerCard4" fitHeight="252.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
                      </ImageView>
-                     <ImageView fx:id="playerCard5" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="playerCard5" fitHeight="252.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
@@ -123,27 +123,27 @@
                </Label>
                <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="100.0" spacing="5.0">
                   <children>
-                     <ImageView fx:id="dealerCard1" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="dealerCard1" fitHeight="252.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
                      </ImageView>
-                     <ImageView fx:id="dealerCard2" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="dealerCard2" fitHeight="252.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
                      </ImageView>
-                     <ImageView fx:id="dealerCard3" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="dealerCard3" fitHeight="252.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
                      </ImageView>
-                     <ImageView fx:id="dealerCard4" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="dealerCard4" fitHeight="252.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
                      </ImageView>
-                     <ImageView fx:id="dealerCard5" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="dealerCard5" fitHeight="252.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
