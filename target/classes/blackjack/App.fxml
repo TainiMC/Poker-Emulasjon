@@ -231,5 +231,13 @@
          </VBox>
       </center>
    </BorderPane>
+   <BorderPane fx:id="borderPaneGameOver" prefHeight="200.0" prefWidth="200.0" visible="false">
+      <center>
+         <Button fx:id="restartButton" mnemonicParsing="false" onAction="#restart" prefHeight="400.0" prefWidth="400.0" text="You Won! Another Game?" visible="false" BorderPane.alignment="CENTER">
+            <font>
+               <Font name="Berlin Sans FB Demi Bold" size="25.0" />
+            </font></Button>
+      </center>
+   </BorderPane>
 
 </StackPane>

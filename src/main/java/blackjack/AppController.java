@@ -20,11 +20,15 @@ public class AppController {
     @FXML private BorderPane borderPaneMenu;
     @FXML private BorderPane borderPaneGame;
     @FXML private BorderPane borderPaneSettings;
+    @FXML private BorderPane borderPaneGameOver;
+
+
 
     @FXML private Button quitGameButton;
     @FXML private Button startButton;
     @FXML private Button hitButton;
-    @FXML private Button standButton;
+    @FXML private Button standButton; 
+    @FXML private Button restartButton; 
 
     @FXML private Label dealerLabel;
 
@@ -51,6 +55,7 @@ public class AppController {
         borderPaneMenu.setVisible(false);
         borderPaneGame.setVisible(true);
         borderPaneSettings.setVisible(false);
+        startButton.setVisible(true);
     }
 
     @FXML
@@ -66,6 +71,16 @@ public class AppController {
         borderPaneGame.setVisible(false);
         borderPaneSettings.setVisible(false);
     }
+
+    @FXML
+    public void restart(ActionEvent event) {
+        borderPaneMenu.setVisible(false);
+        borderPaneGame.setVisible(true);
+        borderPaneSettings.setVisible(false);
+        startButton.setVisible(true);
+        borderPaneGameOver.setVisible(false);
+    }
+
 
     @FXML
     public void quitGame(ActionEvent event) {
@@ -95,6 +110,7 @@ public class AppController {
     }
 
     private void updateDisplay() {
+        
         updateCardRow(player.getHand(), playerCards);
         updateCardRow(table.getDealerHand(), dealerCards);
     }
@@ -105,6 +121,7 @@ public class AppController {
                 Card card = hand.get(i);
                 String cardTexture;
                 if (card.getVisibility()) {
+                Thread.sleep(200);
                 cardTexture = "/blackjack/textures/" + this.textureName + "/" + card.getCardString() + ".jpg";
                 }
                 else {
@@ -127,6 +144,12 @@ public class AppController {
 
         updateDisplay();
 
+        if (player.checkBust()) {
+            borderPaneGame.setVisible(false);
+            restartButton.setVisible(true);
+            borderPaneGameOver.setVisible(true);
+            
+        }
     }
 
     @FXML
@@ -136,8 +159,6 @@ public class AppController {
 
         updateDisplay();
     }
-
-
 
 
 
