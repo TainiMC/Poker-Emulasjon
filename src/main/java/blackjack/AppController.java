@@ -29,10 +29,15 @@ public class AppController {
     @FXML private ImageView playerCard1, playerCard2, playerCard3, playerCard4, playerCard5;
     @FXML private ImageView dealerCard1, dealerCard2, dealerCard3, dealerCard4, dealerCard5;
 
+    private ImageView[] dealerCards;
+    private ImageView[] playerCards;
+
     private Table table;
     private Player player;
-    private ImageView[] playerCards;
-    private ImageView[] dealerCards;
+
+    private String textureName = "TWI SINS";
+
+
 
     public void initialize() {
         playerCards = new ImageView[]{playerCard1, playerCard2, playerCard3, playerCard4, playerCard5};
@@ -83,7 +88,6 @@ public class AppController {
         hitButton.setVisible(true);
         standButton.setVisible(true);
         dealerLabel.setVisible(true);
-        table.initGame();
 
         updateDisplay();
     }
@@ -97,8 +101,8 @@ public class AppController {
         for (int i = 0; i < views.length; i++) {
             if (i < hand.size()) {
                 Card card = hand.get(i);
-                String path = "/blackjack/textures/2020/" + card.getCardString() + ".jpg";
-                Image img = new Image(getClass().getResourceAsStream(path));
+                String cardTexture = "/blackjack/textures/" + this.textureName + "/" + card.getCardString() + ".jpg";
+                Image img = new Image(getClass().getResourceAsStream(cardTexture));
                 views[i].setImage(img);
                 views[i].setVisible(true);
             }     else {
@@ -107,13 +111,57 @@ public class AppController {
         }
     } 
 
-    @FXML
-    public void onHit(ActionEvent event) {
+    
 
+
+    @FXML
+    public  void  onHit(ActionEvent event) {
+        player.hit(table.getTableDeck());
+
+        updateDisplay();
     }
 
     @FXML
     public void onStand(ActionEvent event) {
         
+    }
+
+
+
+
+
+    @FXML
+    public void cards2020(ActionEvent event) {
+        this.textureName = "2020";
+    }
+
+    @FXML
+    public void cardsAtlantis(ActionEvent event) {
+        this.textureName = "Atlantis";
+    }
+
+    @FXML
+    public void cardsDeadPool(ActionEvent event) {
+        this.textureName = "DeadPool";
+    }
+
+    @FXML
+    public void cardsGemini(ActionEvent event) {
+        this.textureName = "Gemini Game Over";
+    }
+
+    @FXML
+    public void cardsKetchup(ActionEvent event) {
+        this.textureName = "Ketchup";
+    }
+
+    @FXML
+    public void cardsTheOffice(ActionEvent event) {
+        this.textureName = "The Office";
+    }
+
+    @FXML
+    public void cardsTwiSins(ActionEvent event) {
+        this.textureName = "TWI SINS";
     }
 }

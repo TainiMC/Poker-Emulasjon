@@ -134,6 +134,10 @@ public class Table {
         return dealerHand;
     }
 
+    public Deck getTableDeck() {
+        return tableDeck;
+    }
+
     public boolean checkBust() {
         int total = dealerHand.stream()
             .mapToInt(Card::getValue)

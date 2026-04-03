@@ -60,27 +60,27 @@
             <children>
                <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="100.0">
                   <children>
-                     <ImageView fx:id="playerCard1" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="playerCard1" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
                      </ImageView>
-                     <ImageView fx:id="playerCard2" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="playerCard2" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
                      </ImageView>
-                     <ImageView fx:id="playerCard3" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="playerCard3" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
                      </ImageView>
-                     <ImageView fx:id="playerCard4" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="playerCard4" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
                      </ImageView>
-                     <ImageView fx:id="playerCard5" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="playerCard5" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
@@ -123,27 +123,27 @@
                </Label>
                <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="100.0" spacing="5.0">
                   <children>
-                     <ImageView fx:id="dealerCard1" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="dealerCard1" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
                      </ImageView>
-                     <ImageView fx:id="dealerCard2" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="dealerCard2" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
                      </ImageView>
-                     <ImageView fx:id="dealerCard3" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="dealerCard3" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
                      </ImageView>
-                     <ImageView fx:id="dealerCard4" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="dealerCard4" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
                      </ImageView>
-                     <ImageView fx:id="dealerCard5" fitHeight="112.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <ImageView fx:id="dealerCard5" fitHeight="196.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
@@ -174,10 +174,62 @@
       <top>
             <Label contentDisplay="CENTER" styleClass="labels" text="Settings" textAlignment="CENTER" BorderPane.alignment="CENTER">
                 <font>
-                    <Font size="46.0" />
+                    <Font name="Bell MT Bold" size="46.0" />
                 </font>
+            <BorderPane.margin>
+               <Insets bottom="20.0" />
+            </BorderPane.margin>
             </Label>
       </top>
+      <center>
+         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+               <Label text="Card Textures" textAlignment="CENTER">
+                  <font>
+                     <Font name="System Bold" size="23.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="10.0" />
+                  </VBox.margin>
+               </Label>
+               <Button fx:id="cards2020" maxHeight="1.7976931348623157E308" maxWidth="150.0" mnemonicParsing="false" onAction="#cards2020" prefHeight="40.0" text="2020">
+                  <VBox.margin>
+                     <Insets bottom="5.0" top="5.0" />
+                  </VBox.margin>
+               </Button>
+               <Button fx:id="cardsAtlantis" maxHeight="1.7976931348623157E308" maxWidth="150.0" mnemonicParsing="false" onAction="#cardsAtlantis" prefHeight="40.0" text="Atlantis">
+                  <VBox.margin>
+                     <Insets bottom="5.0" top="5.0" />
+                  </VBox.margin>
+               </Button>
+               <Button fx:id="cardsDeadPool" maxHeight="1.7976931348623157E308" maxWidth="150.0" mnemonicParsing="false" onAction="#cardsDeadPool" prefHeight="40.0" text="DeadPool">
+                  <VBox.margin>
+                     <Insets bottom="5.0" top="5.0" />
+                  </VBox.margin>
+               </Button>
+               <Button fx:id="cardsGemini" maxHeight="1.7976931348623157E308" maxWidth="150.0" mnemonicParsing="false" onAction="#cardsGemini" prefHeight="40.0" text="Gemini Game Over">
+                  <VBox.margin>
+                     <Insets bottom="5.0" top="5.0" />
+                  </VBox.margin>
+               </Button>
+               <Button fx:id="cardsKetchup" maxHeight="1.7976931348623157E308" maxWidth="150.0" mnemonicParsing="false" onAction="#cardsKetchup" prefHeight="40.0" text="Ketchup">
+                  <VBox.margin>
+                     <Insets bottom="5.0" top="5.0" />
+                  </VBox.margin>
+               </Button>
+               <Button fx:id="cardsTheOffice" maxHeight="1.7976931348623157E308" maxWidth="150.0" mnemonicParsing="false" onAction="#cardsTheOffice" prefHeight="40.0" text="The Office">
+                  <VBox.margin>
+                     <Insets bottom="5.0" top="5.0" />
+                  </VBox.margin>
+               </Button>
+               <Button fx:id="cardsTwiSins" maxHeight="1.7976931348623157E308" maxWidth="150.0" mnemonicParsing="false" onAction="#cardsTwiSins" prefHeight="40.0" text="TWI SINS">
+                  <VBox.margin>
+                     <Insets bottom="5.0" top="5.0" />
+                  </VBox.margin>
+               </Button>
+            </children>
+         </VBox>
+      </center>
    </BorderPane>
 
 </StackPane>

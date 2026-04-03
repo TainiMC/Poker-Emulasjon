@@ -46,8 +46,8 @@ public class Player {
         if(checkBust()) { // True == busted
             this.busted = true;
            stand();
-        } else {
-            hitOrStand(deck);
+        }/*  else {
+            hitOrStand(deck); */ //remove this, it fucks up the javafx /Tim
         }
 
 
