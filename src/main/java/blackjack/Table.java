@@ -86,7 +86,7 @@ public class Table {
 
     public void dealerDraw() {
 
-        while (!checkBust() && getMaxScore() < 17) {
+        while (getMaxScore() < 21) {
             Card freshCard = tableDeck.pullTopCard();
             dealerHand.add(freshCard);
         }
@@ -143,7 +143,7 @@ public class Table {
             .mapToInt(Card::getValue)
             .sum();
 
-        return total > 21;
+        return total > 17;
         //True = busted
         //Must also check for ace = 1 or 11
     }
