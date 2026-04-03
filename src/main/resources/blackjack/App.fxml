@@ -148,6 +148,7 @@
                            <Insets />
                         </HBox.margin>
                      </ImageView>
+                     <ImageView fitHeight="252.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" />
                   </children>
                   <padding>
                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -233,7 +234,7 @@
    </BorderPane>
    <BorderPane fx:id="borderPaneGameOver" prefHeight="200.0" prefWidth="200.0" visible="false">
       <center>
-         <Button fx:id="restartButton" mnemonicParsing="false" onAction="#restart" prefHeight="400.0" prefWidth="400.0" text="You Won! Another Game?" visible="false" BorderPane.alignment="CENTER">
+         <Button fx:id="restartButton" mnemonicParsing="false" onAction="#restart" prefHeight="400.0" prefWidth="400.0" text="Restart?" visible="false" BorderPane.alignment="CENTER">
             <font>
                <Font name="Berlin Sans FB Demi Bold" size="25.0" />
             </font></Button>

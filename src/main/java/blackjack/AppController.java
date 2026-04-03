@@ -11,6 +11,9 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
+import javafx.animation.PauseTransition;
+import javafx.util.Duration;
+
 
 import java.awt.image.ShortLookupTable;
 import java.util.List;
@@ -79,6 +82,12 @@ public class AppController {
         borderPaneSettings.setVisible(false);
         startButton.setVisible(true);
         borderPaneGameOver.setVisible(false);
+        for (ImageView card : playerCards) {
+            card.setVisible(false);
+        }
+        for (ImageView card : dealerCards) {
+            card.setVisible(false);
+        }
     }
 
 
@@ -110,7 +119,7 @@ public class AppController {
     }
 
     private void updateDisplay() {
-        
+
         updateCardRow(player.getHand(), playerCards);
         updateCardRow(table.getDealerHand(), dealerCards);
     }
@@ -121,7 +130,6 @@ public class AppController {
                 Card card = hand.get(i);
                 String cardTexture;
                 if (card.getVisibility()) {
-                Thread.sleep(200);
                 cardTexture = "/blackjack/textures/" + this.textureName + "/" + card.getCardString() + ".jpg";
                 }
                 else {
@@ -129,7 +137,15 @@ public class AppController {
                 }
                 Image img = new Image(getClass().getResourceAsStream(cardTexture));
                 views[i].setImage(img);
-                views[i].setVisible(true);
+                views[i].setVisible(false);
+                final int index = i;
+                //final String texture = cardTexture;
+                PauseTransition pause = new PauseTransition(Duration.seconds(1));
+                pause.setOnFinished(e -> {
+                  //views[i].setImage(new Image(getClass().getResourceAsStream(cardTexture)));
+                  views[index].setVisible(true);
+              });
+                pause.play();
             }     else {
                 views[i].setVisible(false);
             }
@@ -146,6 +162,7 @@ public class AppController {
 
         if (player.checkBust()) {
             borderPaneGame.setVisible(false);
+            restartButton.setText(table.showResult());
             restartButton.setVisible(true);
             borderPaneGameOver.setVisible(true);
             
