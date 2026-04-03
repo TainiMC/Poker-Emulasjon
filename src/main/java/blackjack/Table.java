@@ -51,23 +51,6 @@ public class Table {
        dealerHand.add(card2);
        //Draws one card face down for dealer
 
-
-
-
-        askPlayers(); //Asks every player to hit or stand until it is dealers turn
-
-        for (Player player : playerList) {
-            if (!player.returnBusted()) {
-                int playerScore = player.getMaxScore();
-                int dealerScore = this.getMaxScore();
-
-                if (playerScore > dealerScore) {player.registerWin();}
-
-            } 
-        }
-        for (Player player : playerList) {
-            System.out.println(player.toString());
-        }
     }
 
     public void askPlayers() {
@@ -83,24 +66,6 @@ public class Table {
             dealerHand.add(freshCard);
         }
     }
-
-
-            //When do I use this? Is it not very simlar to delarDraw() ? / Tim
-
-/*     public boolean dealerHit() {
-        int score = dealerHand.stream()
-            .mapToInt(Card::getValue)
-            .sum();
-        int aceScore = dealerHand.stream()
-            .mapToInt(Card::returnAce)
-            .sum();
-
-        if (score <= 21 || (score + aceScore) <= 21) {
-            return true;
-        } else { return false; }
-        //True = hit, false = stand
-    } */
-
 
 
 
@@ -131,22 +96,23 @@ public class Table {
     }
 
     public boolean checkBust() {
-        int total = dealerHand.stream()
-            .mapToInt(Card::getValue)
-            .sum();
 
-        return total > 17;
-        //True = busted
-        //Must also check for ace = 1 or 11
+        if (getMaxScore() > 21) {
+            return true;
+        } else {
+            return false;
+            }
+
     }
 
     public String showResult() {
-            if (checkBust()) {
-                return "Table busted";
-            }
+
 
             if (playerList.get(0).checkBust()) {
                 return "You busted";
+            }
+            if (checkBust()) {
+                return "Table busted";
             }
 
             if (getMaxScore() < playerList.get(0).getMaxScore()) { //Når spilleren vinner
