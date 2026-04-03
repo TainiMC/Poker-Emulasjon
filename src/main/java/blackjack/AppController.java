@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
+
+import java.awt.image.ShortLookupTable;
 import java.util.List;
 
 public class AppController {
@@ -119,28 +121,20 @@ public class AppController {
 
     
 
-public boolean hitOrStand;
-public boolean buttonHit = false;
-
     @FXML
     public  void  onHit(ActionEvent event) {
-        this.buttonHit = true;
-        this.hitOrStand = true;
-
         player.hit(table.getTableDeck());
 
         updateDisplay();
-        if (table.checkBust()) {
 
-        }
     }
 
     @FXML
     public void onStand(ActionEvent event) {
-        this.buttonHit = true;
 
         table.dealerDraw();
-        
+
+        updateDisplay();
     }
 
 

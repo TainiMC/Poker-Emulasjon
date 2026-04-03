@@ -13,17 +13,15 @@ public class Player {
 
     }
     public boolean checkBust() {
-        int total = hand.stream()
-            .mapToInt(Card::getValue)
-            .sum();
-            return total > 21; //True = busted
-        //Must also check for ace = 1 or 11
+        if (getMaxScore() > 21) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void hitOrStand(Deck deck) {
-        //Ask JavaFX for input
-        //Get info from javaFX
-        if (true) { this.hit(deck);} else {this.stand();}
+
     }
 
     public void resetBusted() {
@@ -45,19 +43,10 @@ public class Player {
 
         if(checkBust()) { // True == busted
             this.busted = true;
-           stand();
-        }/*  else {
-            hitOrStand(deck);  //remove this, it fucks up the javafx /Tim
-        }*/
-
-
-
-        //pullTopCard pulls top card, removes it from Deck and returns it
-        //How do we make sure every instance of player works with the same deck?
-        //If checkBust ret True  -> call stand()
-
+        }
     }
-    public int getMaxScore() {
+
+       public int getMaxScore() {
         int score = hand.stream()
             .mapToInt(Card::getValue)
             .sum();
@@ -72,16 +61,10 @@ public class Player {
         }
     }
 
-    //I need a getter for the players hand /Tim
     public List<Card> getHand() {
         return hand;
     }
 
-    public void stand() {
-        //Must tell table to end turn and go to next player
-
-
-    }
 
     public void registerWin() {
 

@@ -18,7 +18,6 @@ import java.util.List;
 public class Table {
     private List<Player> playerList;
     private List<Card> dealerHand = new ArrayList<>();
-    private int whichPlayer = 0;
     public Deck tableDeck; //Had to make this public so I can acces it //Tim
 
     public Table (List<Player> playerList) {
@@ -52,64 +51,21 @@ public class Table {
        dealerHand.add(card2);
        //Draws one card face down for dealer
 
-
-
-
-       //  askPlayers(); //Asks every player to hit or stand until it is dealers turn
-       // I made this a comment because the game will try to play itself out automatically the moment you click START / Tim
-
-        for (Player player : playerList) {
-            if (!player.returnBusted()) {
-                int playerScore = player.getMaxScore();
-                int dealerScore = this.getMaxScore();
-
-                if (playerScore > dealerScore) {player.registerWin();}
-
-            } 
-        }
-        for (Player player : playerList) {
-            System.out.println(player.toString());
-        }
     }
 
     public void askPlayers() {
-        if (whichPlayer < playerList.size()) { //Checks if we should ask player or draw for dealer
+            playerList.get(0).hitOrStand(tableDeck);
 
-            Player currentPlayer = playerList.get(whichPlayer);
-            currentPlayer.hitOrStand(tableDeck);
-            whichPlayer++;
-
-        } else {
-            this.dealerDraw();
-            whichPlayer = 0;
-        }
-    }
+            }
 
     public void dealerDraw() {
+        dealerHand.get(1).setVisible(); //Snu kort 2
 
-        while (!checkBust() && getMaxScore() < 17) {
+        while (getMaxScore() < 21) {
             Card freshCard = tableDeck.pullTopCard();
             dealerHand.add(freshCard);
         }
     }
-
-
-            //When do I use this? Is it not very simlar to delarDraw() ? / Tim
-
-/*     public boolean dealerHit() {
-        int score = dealerHand.stream()
-            .mapToInt(Card::getValue)
-            .sum();
-        int aceScore = dealerHand.stream()
-            .mapToInt(Card::returnAce)
-            .sum();
-
-        if (score <= 21 || (score + aceScore) <= 21) {
-            return true;
-        } else { return false; }
-        //True = hit, false = stand
-    } */
-
 
 
 
@@ -140,12 +96,29 @@ public class Table {
     }
 
     public boolean checkBust() {
-        int total = dealerHand.stream()
-            .mapToInt(Card::getValue)
-            .sum();
 
-        return total > 21;
-        //True = busted
-        //Must also check for ace = 1 or 11
+        if (getMaxScore() > 21) {
+            return true;
+        } else {
+            return false;
+            }
+
     }
+
+    public String showResult() {
+
+
+            if (playerList.get(0).checkBust()) {
+                return "You busted";
+            }
+            if (checkBust()) {
+                return "Table busted";
+            }
+
+            if (getMaxScore() < playerList.get(0).getMaxScore()) { //Når spilleren vinner
+                return "You won!";
+            } else {
+                return "You lost!";
+            }
+        }
 }
