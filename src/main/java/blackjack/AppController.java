@@ -77,11 +77,11 @@ public class AppController {
 
     @FXML
     public void restart(ActionEvent event) {
-        borderPaneMenu.setVisible(false);
         borderPaneGame.setVisible(true);
-        borderPaneSettings.setVisible(false);
         startButton.setVisible(true);
         borderPaneGameOver.setVisible(false);
+        hitButton.setVisible(false);
+        standButton.setVisible(false);
         for (ImageView card : playerCards) {
             card.setVisible(false);
         }
@@ -140,7 +140,7 @@ public class AppController {
                 views[i].setVisible(false);
                 final int index = i;
                 //final String texture = cardTexture;
-                PauseTransition pause = new PauseTransition(Duration.seconds(1));
+                PauseTransition pause = new PauseTransition(Duration.millis(600*(i + 1)));
                 pause.setOnFinished(e -> {
                   //views[i].setImage(new Image(getClass().getResourceAsStream(cardTexture)));
                   views[index].setVisible(true);
@@ -161,11 +161,10 @@ public class AppController {
         updateDisplay();
 
         if (player.checkBust()) {
-            borderPaneGame.setVisible(false);
+            dealerLabel.setVisible(false);
             restartButton.setText(table.showResult());
             restartButton.setVisible(true);
-            borderPaneGameOver.setVisible(true);
-            
+            borderPaneGameOver.setVisible(true);   
         }
     }
 
@@ -175,6 +174,13 @@ public class AppController {
         table.dealerDraw();
 
         updateDisplay();
+        
+        if (table.checkBust()) {
+            dealerLabel.setVisible(false);
+            restartButton.setText(table.showResult());
+            restartButton.setVisible(true);
+            borderPaneGameOver.setVisible(true);   
+        }
     }
 
 
