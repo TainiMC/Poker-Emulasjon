@@ -61,7 +61,7 @@ public class Table {
     public void dealerDraw() {
         dealerHand.get(1).setVisible(); //Snu kort 2
 
-        while (getMaxScore() < 21) {
+        while (getMaxScore() < 17) {
             Card freshCard = tableDeck.pullTopCard();
             dealerHand.add(freshCard);
         }
@@ -99,6 +99,7 @@ public class Table {
 
         if (getMaxScore() > 21) {
             return true;
+
         } else {
             return false;
             }
@@ -108,17 +109,29 @@ public class Table {
     public String showResult() {
 
 
-            if (playerList.get(0).checkBust()) {
-                return "You busted";
+        if (playerList.get(0).checkBust()) {
+            return "You lost";
             }
-            if (checkBust()) {
-                return "Table busted";
+        if (checkBust()) {
+            return "You lost";
             }
 
-            if (getMaxScore() < playerList.get(0).getMaxScore()) { //Når spilleren vinner
-                return "You won!";
-            } else {
-                return "You lost!";
-            }
+        if (getMaxScore() < playerList.get(0).getMaxScore()) { //Når spilleren vinner
+            return "You won!";
+        } else {
+            return "You lost!";
         }
+    }
+
+    public boolean isGameOver() {
+        if(checkBust() || playerList.get(0).checkBust()) { //Når enten har busted er spillet over.
+            return true;
+        }
+
+        if ((dealerHand.size() > 2)) { //Når dealer har tatt kort er runden over
+            return true;
+        }
+
+        return false;
+    }
 }
