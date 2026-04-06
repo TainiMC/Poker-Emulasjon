@@ -14,8 +14,6 @@ import javafx.scene.image.Image;
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
 
-
-import java.awt.image.ShortLookupTable;
 import java.util.List;
 
 public class AppController {
@@ -137,21 +135,19 @@ public class AppController {
                 }
                 Image img = new Image(getClass().getResourceAsStream(cardTexture));
                 views[i].setImage(img);
-                views[i].setVisible(false);
-                final int index = i;
-                //final String texture = cardTexture;
-                PauseTransition pause = new PauseTransition(Duration.millis(600*(i + 1)));
-                pause.setOnFinished(e -> {
-                  //views[i].setImage(new Image(getClass().getResourceAsStream(cardTexture)));
-                  views[index].setVisible(true);
-              });
-                pause.play();
-            }     else {
+                if (!views[i].isVisible()) {
+                    final int index = i;
+                    PauseTransition pause = new PauseTransition(Duration.millis(600));
+                    pause.setOnFinished(e -> {views[index].setVisible(true);}); 
+                    pause.play();
+                    }
+            }     
+            else {
                 views[i].setVisible(false);
             }
         }
-    } 
-
+    }
+    
     
 
     @FXML
@@ -170,17 +166,15 @@ public class AppController {
 
     @FXML
     public void onStand(ActionEvent event) {
+        hitButton.setVisible(false);
+        standButton.setVisible(false);
 
         table.dealerDraw();
-
         updateDisplay();
         
-        if (table.checkBust()) {
-            dealerLabel.setVisible(false);
-            restartButton.setText(table.showResult());
-            restartButton.setVisible(true);
-            borderPaneGameOver.setVisible(true);   
-        }
+        restartButton.setText(table.showResult());
+        restartButton.setVisible(true);
+        borderPaneGameOver.setVisible(true);
     }
 
 
