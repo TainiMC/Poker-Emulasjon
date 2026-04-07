@@ -119,7 +119,7 @@ public class AppController {
         alert.setContentText("Pressing ok will save the game and bring you back to the main menu");
 
         if (alert.showAndWait().get() == ButtonType.OK) {
-
+            //CALL FOR THE SAVING METHOD HERE //Tim
             borderPaneMenu.setVisible(true);
             borderPaneGame.setVisible(false);
             borderPaneSettings.setVisible(false);
