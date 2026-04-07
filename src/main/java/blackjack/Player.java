@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Player {
     private List<Card> hand = new ArrayList<>();
     private int chips;
+    private int wins;
     private boolean busted = false;
 
     public Player (int buyIn) {
@@ -65,10 +66,41 @@ public class Player {
         return hand;
     }
 
+    public int getChips() {
+        return chips;
+    }
+
+    public int getWins() {
+        return wins;
+    }
+
+    public void setWins(int wins) {
+        this.wins = wins;
+    }
+
+    public void setChips(int chips) {
+        this.chips = chips;
+    }
 
     public void registerWin() {
+        wins += 1;
+        chips += 50;
 
     }
+
+    public void registerLoss() {
+        chips -= 50;
+    }
+
+    public void loadSave() {
+        try {
+        int[] data = SaveManager.load();
+        this.chips = data[0];
+        this.wins = data[1];
+            } catch (Exception e) {
+              System.out.println("Load failed: " + e.getMessage());
+        }
+      }
 
     @Override
     public String toString() {

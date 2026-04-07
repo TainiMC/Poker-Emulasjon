@@ -119,6 +119,7 @@ public class AppController {
         alert.setContentText("Pressing ok will save the game and bring you back to the main menu");
 
         if (alert.showAndWait().get() == ButtonType.OK) {
+            SaveManager.save(player);
             //CALL FOR THE SAVING METHOD HERE //Tim
             borderPaneMenu.setVisible(true);
             borderPaneGame.setVisible(false);
@@ -128,7 +129,9 @@ public class AppController {
 
     @FXML
     public void Start(ActionEvent event) {
-        player = new Player(500);
+        int[] data = SaveManager.load();
+        player = new Player(data[0]);
+        player.setWins(data[1]);
         table = new Table(List.of(player));
         table.initGame();
 
@@ -185,7 +188,8 @@ public class AppController {
             restartButton.setText(table.showResult());
             restartButton.setVisible(true);
             borderPaneGameOver.setVisible(true);
-            mainMenuButton.setVisible(false);   
+            mainMenuButton.setVisible(false);
+            SaveManager.save(player);
         }
     }
 
@@ -197,10 +201,11 @@ public class AppController {
 
         table.dealerDraw();
         updateDisplay();
-        
+
         restartButton.setText(table.showResult());
         restartButton.setVisible(true);
         borderPaneGameOver.setVisible(true);
+        SaveManager.save(player);
     }
 
 
