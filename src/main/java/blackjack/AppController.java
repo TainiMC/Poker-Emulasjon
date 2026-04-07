@@ -29,12 +29,13 @@ public class AppController {
     @FXML private Button startButton;
     @FXML private Button hitButton;
     @FXML private Button standButton; 
-    @FXML private Button restartButton; 
+    @FXML private Button restartButton;
+    @FXML private Button mainMenuButton;
 
     @FXML private Label dealerLabel;
 
-    @FXML private ImageView playerCard1, playerCard2, playerCard3, playerCard4, playerCard5;
-    @FXML private ImageView dealerCard1, dealerCard2, dealerCard3, dealerCard4, dealerCard5;
+    @FXML private ImageView playerCard1, playerCard2, playerCard3, playerCard4, playerCard5, playerCard6;
+    @FXML private ImageView dealerCard1, dealerCard2, dealerCard3, dealerCard4, dealerCard5, dealerCard6;
 
     private ImageView[] dealerCards;
     private ImageView[] playerCards;
@@ -53,10 +54,17 @@ public class AppController {
 
     @FXML
     public void StartNewGame(ActionEvent event) {
+        mainMenuButton.setVisible(false);
         borderPaneMenu.setVisible(false);
         borderPaneGame.setVisible(true);
         borderPaneSettings.setVisible(false);
         startButton.setVisible(true);
+        for (ImageView card : playerCards) {
+            card.setVisible(false);
+        }
+        for (ImageView card : dealerCards) {
+            card.setVisible(false);
+        }
     }
 
     @FXML
@@ -76,6 +84,7 @@ public class AppController {
     @FXML
     public void restart(ActionEvent event) {
         borderPaneGame.setVisible(true);
+        mainMenuButton.setVisible(false);
         startButton.setVisible(true);
         borderPaneGameOver.setVisible(false);
         hitButton.setVisible(false);
@@ -103,6 +112,21 @@ public class AppController {
     }
 
     @FXML
+    public void backToMainMenu(ActionEvent event) {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Back to Main Menu");
+        alert.setHeaderText("Save and go back to Main Menu?");
+        alert.setContentText("Pressing ok will save the game and bring you back to the main menu");
+
+        if (alert.showAndWait().get() == ButtonType.OK) {
+
+            borderPaneMenu.setVisible(true);
+            borderPaneGame.setVisible(false);
+            borderPaneSettings.setVisible(false);
+        }
+    }
+
+    @FXML
     public void Start(ActionEvent event) {
         player = new Player(500);
         table = new Table(List.of(player));
@@ -112,12 +136,12 @@ public class AppController {
         hitButton.setVisible(true);
         standButton.setVisible(true);
         dealerLabel.setVisible(true);
+        mainMenuButton.setVisible(true);
 
         updateDisplay();
     }
 
     private void updateDisplay() {
-
         updateCardRow(player.getHand(), playerCards);
         updateCardRow(table.getDealerHand(), dealerCards);
     }
@@ -160,12 +184,14 @@ public class AppController {
             dealerLabel.setVisible(false);
             restartButton.setText(table.showResult());
             restartButton.setVisible(true);
-            borderPaneGameOver.setVisible(true);   
+            borderPaneGameOver.setVisible(true);
+            mainMenuButton.setVisible(false);   
         }
     }
 
     @FXML
     public void onStand(ActionEvent event) {
+        mainMenuButton.setVisible(false);   
         hitButton.setVisible(false);
         standButton.setVisible(false);
 

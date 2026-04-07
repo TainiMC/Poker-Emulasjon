@@ -110,16 +110,16 @@ public class Table {
 
 
         if (playerList.get(0).checkBust()) {
-            return "You Busted! Game over!";
+            return "You Busted! Game over! \n Play Again?";
             }
         if (checkBust()) {
-            return "Dealer Busted, You Won! ";
+            return "Dealer Busted, You Won! \n Play Again?";
             }
 
         if (getMaxScore() < playerList.get(0).getMaxScore()) { //Når spilleren vinner
-            return "You Won!";
+            return "You Won! \n Play Again?";
         } else {
-            return "Dealer Wins!";
+            return "Dealer Wins! \n Play Again?";
         }
     }
 
