@@ -20,10 +20,9 @@ public class Table {
     private List<Card> dealerHand = new ArrayList<>();
     public Deck tableDeck; //Had to make this public so I can acces it //Tim
 
-    public Table (List<Player> playerList) {
+    public Table (List<Player> playerList, int amountOfDecks) {
        this.playerList = playerList;
-       this.tableDeck = new Deck();
-
+       this.tableDeck = new Deck(amountOfDecks);
     }
 
     public void initGame() {

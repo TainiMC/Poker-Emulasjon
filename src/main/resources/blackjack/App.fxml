@@ -6,19 +6,21 @@
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <StackPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="blackjack.AppController">
    <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="backgroundPane" StackPane.alignment="CENTER" />
    <BorderPane fx:id="borderPaneMenu">
       <top>
-            <Label prefHeight="106.0" prefWidth="344.0" styleClass="labels" text="Blackjack" textAlignment="CENTER" underline="true" BorderPane.alignment="CENTER">
+            <Label styleClass="labels" text="Blackjack" textAlignment="CENTER" underline="true" BorderPane.alignment="CENTER">
                 <font>
-                    <Font name="Berlin Sans FB" size="76.0" />
+                    <Font name="Berlin Sans FB" size="96.0" />
                 </font>
             <effect>
                <Glow />
@@ -26,24 +28,36 @@
             </Label>
       </top>
       <center>
-         <VBox maxHeight="-Infinity" maxWidth="200.0" prefHeight="295.0" prefWidth="200.0" spacing="25.0" BorderPane.alignment="CENTER">
+         <VBox maxHeight="-Infinity" maxWidth="250.0" prefHeight="400.0" prefWidth="250.0" spacing="25.0" BorderPane.alignment="CENTER">
             <children>
-                  <Button fx:id="NewGameButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#StartNewGame" prefHeight="45.0" text="New Game" textAlignment="CENTER">
+                  <Button fx:id="NewGameButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#startNewGame" prefHeight="70.0" text="New Game" textAlignment="CENTER">
                   <VBox.margin>
                      <Insets />
                   </VBox.margin>
+                  <font>
+                     <Font name="Bell MT" size="20.0" />
+                  </font>
                </Button>
-                  <Button fx:id="ContinueButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="45.0" text="Continue" textAlignment="CENTER">
+                  <Button fx:id="continueButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Continue" prefHeight="70.0" text="Continue" textAlignment="CENTER">
                   <VBox.margin>
                      <Insets />
                   </VBox.margin>
+                  <font>
+                     <Font name="Bell MT" size="20.0" />
+                  </font>
                </Button>
-                  <Button fx:id="settingsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Settings" prefHeight="45.0" text="Settings">
+                  <Button fx:id="settingsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#settings" prefHeight="70.0" text="Settings">
                   <VBox.margin>
                      <Insets />
                   </VBox.margin>
+                  <font>
+                     <Font name="Bell MT" size="20.0" />
+                  </font>
                </Button>
-                  <Button fx:id="quitGameButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#quitGame" prefHeight="45.0" text="Quit Game" />
+                  <Button fx:id="quitGameButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#quitGame" prefHeight="70.0" text="Quit Game">
+                  <font>
+                     <Font name="Bell MT" size="20.0" />
+                  </font></Button>
             </children>
             <BorderPane.margin>
                <Insets top="10.0" />
@@ -112,23 +126,11 @@
          </VBox>
       </bottom>
       <top>
-         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <VBox alignment="CENTER" maxHeight="200.0" prefHeight="150.0" prefWidth="100.0" BorderPane.alignment="CENTER">
             <children>
-               <HBox prefHeight="100.0" prefWidth="200.0">
-                  <children>
-                     <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#backToMainMenu" text="Main Menu" visible="false">
-                        <font>
-                           <Font name="Bodoni MT Bold" size="16.0" />
-                        </font>
-                        <HBox.margin>
-                           <Insets />
-                        </HBox.margin>
-                     </Button>
-                  </children>
-               </HBox>
                <Label fx:id="dealerLabel" contentDisplay="CENTER" text="THE DEALER" textAlignment="CENTER" visible="false">
                   <font>
-                     <Font name="Berlin Sans FB Demi Bold" size="32.0" />
+                     <Font name="Berlin Sans FB Demi Bold" size="42.0" />
                   </font>
                   <VBox.margin>
                      <Insets />
@@ -171,19 +173,74 @@
          </VBox>
       </top>
       <center>
-         <Button fx:id="startButton" mnemonicParsing="false" onAction="#Start" prefHeight="219.0" prefWidth="245.0" text="START" BorderPane.alignment="CENTER">
+         <Button fx:id="startButton" mnemonicParsing="false" onAction="#start" prefHeight="150.0" prefWidth="245.0" text="START" BorderPane.alignment="CENTER">
             <font>
                <Font name="Arial Black" size="48.0" />
             </font>
          </Button>
       </center>
+      <right>
+         <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <left>
+               <AnchorPane prefHeight="219.0" prefWidth="165.0" BorderPane.alignment="CENTER">
+                  <children>
+                     <Rectangle arcHeight="5.0" arcWidth="5.0" height="57.0" stroke="BLACK" strokeType="INSIDE" width="170.0" />
+                     <Label fx:id="chipsLabel" alignment="CENTER" contentDisplay="CENTER" text="Chips: " textAlignment="CENTER" textFill="WHITE">
+                        <font>
+                           <Font name="Berlin Sans FB Demi Bold" size="29.0" />
+                        </font>
+                        <padding>
+                           <Insets left="10.0" top="10.0" />
+                        </padding>
+                     </Label>
+                  </children>
+               </AnchorPane>
+            </left>
+         </BorderPane>
+      </right>
+      <left>
+         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+               <Rectangle arcHeight="5.0" arcWidth="5.0" height="141.0" stroke="BLACK" strokeType="INSIDE" width="156.0" />
+               <VBox prefHeight="219.0" prefWidth="194.0">
+                  <children>
+                     <Label fx:id="winsLabel" maxWidth="1.7976931348623157E308" text="Wins: 0" textFill="WHITE">
+                        <font>
+                           <Font name="Berlin Sans FB Demi Bold" size="29.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets top="20.0" />
+                        </VBox.margin>
+                        <padding>
+                           <Insets left="10.0" />
+                        </padding>
+                     </Label>
+                     <Label fx:id="lossesLabel" maxWidth="1.7976931348623157E308" text="Losses: 0" textFill="WHITE">
+                        <font>
+                           <Font name="Berlin Sans FB Demi Bold" size="29.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets top="20.0" />
+                        </VBox.margin>
+                        <padding>
+                           <Insets left="10.0" />
+                        </padding>
+                     </Label>
+                  </children>
+               </VBox>
+            </children>
+         </AnchorPane>
+      </left>
    </BorderPane>
    <BorderPane fx:id="borderPaneSettings" visible="false">
       <bottom>
-            <Button mnemonicParsing="false" onAction="#Menu" prefHeight="100.0" prefWidth="200.0" text="Back" BorderPane.alignment="TOP_LEFT">
+            <Button mnemonicParsing="false" onAction="#menu" prefHeight="100.0" prefWidth="200.0" text="Back" BorderPane.alignment="TOP_LEFT">
             <BorderPane.margin>
                <Insets bottom="25.0" left="25.0" />
-            </BorderPane.margin></Button>
+            </BorderPane.margin>
+            <font>
+               <Font name="Bell MT" size="20.0" />
+            </font></Button>
       </bottom>
       <top>
             <Label contentDisplay="CENTER" styleClass="labels" text="Settings" textAlignment="CENTER" BorderPane.alignment="CENTER">
@@ -196,61 +253,184 @@
             </Label>
       </top>
       <center>
-         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-               <Label text="Card Textures" textAlignment="CENTER">
-                  <font>
-                     <Font name="System Bold" size="23.0" />
-                  </font>
-                  <VBox.margin>
-                     <Insets bottom="10.0" />
-                  </VBox.margin>
-               </Label>
-               <Button fx:id="cards2020" maxHeight="1.7976931348623157E308" maxWidth="150.0" mnemonicParsing="false" onAction="#cards2020" prefHeight="40.0" text="2020">
-                  <VBox.margin>
-                     <Insets bottom="5.0" top="5.0" />
-                  </VBox.margin>
-               </Button>
-               <Button fx:id="cardsAtlantis" maxHeight="1.7976931348623157E308" maxWidth="150.0" mnemonicParsing="false" onAction="#cardsAtlantis" prefHeight="40.0" text="Atlantis">
-                  <VBox.margin>
-                     <Insets bottom="5.0" top="5.0" />
-                  </VBox.margin>
-               </Button>
-               <Button fx:id="cardsDeadPool" maxHeight="1.7976931348623157E308" maxWidth="150.0" mnemonicParsing="false" onAction="#cardsDeadPool" prefHeight="40.0" text="DeadPool">
-                  <VBox.margin>
-                     <Insets bottom="5.0" top="5.0" />
-                  </VBox.margin>
-               </Button>
-               <Button fx:id="cardsGemini" maxHeight="1.7976931348623157E308" maxWidth="150.0" mnemonicParsing="false" onAction="#cardsGemini" prefHeight="40.0" text="Gemini Game Over">
-                  <VBox.margin>
-                     <Insets bottom="5.0" top="5.0" />
-                  </VBox.margin>
-               </Button>
-               <Button fx:id="cardsKetchup" maxHeight="1.7976931348623157E308" maxWidth="150.0" mnemonicParsing="false" onAction="#cardsKetchup" prefHeight="40.0" text="Ketchup">
-                  <VBox.margin>
-                     <Insets bottom="5.0" top="5.0" />
-                  </VBox.margin>
-               </Button>
-               <Button fx:id="cardsTheOffice" maxHeight="1.7976931348623157E308" maxWidth="150.0" mnemonicParsing="false" onAction="#cardsTheOffice" prefHeight="40.0" text="The Office">
-                  <VBox.margin>
-                     <Insets bottom="5.0" top="5.0" />
-                  </VBox.margin>
-               </Button>
-               <Button fx:id="cardsTwiSins" maxHeight="1.7976931348623157E308" maxWidth="150.0" mnemonicParsing="false" onAction="#cardsTwiSins" prefHeight="40.0" text="TWI SINS">
-                  <VBox.margin>
-                     <Insets bottom="5.0" top="5.0" />
-                  </VBox.margin>
-               </Button>
+               <VBox alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="70.0" prefWidth="250.0">
+                  <children>
+                     <Label text="Card Textures" textAlignment="CENTER">
+                        <font>
+                           <Font name="System Bold" size="23.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets />
+                        </VBox.margin>
+                     </Label>
+                     <Button fx:id="cards2020" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="2020">
+                        <VBox.margin>
+                           <Insets bottom="5.0" top="5.0" />
+                        </VBox.margin>
+                        <font>
+                           <Font name="Bell MT" size="20.0" />
+                        </font>
+                     </Button>
+                     <Button fx:id="cardsAtlantis" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cardsAtlantis" prefHeight="70.0" text="Atlantis">
+                        <VBox.margin>
+                           <Insets bottom="5.0" top="5.0" />
+                        </VBox.margin>
+                        <font>
+                           <Font name="Bell MT" size="20.0" />
+                        </font>
+                     </Button>
+                     <Button fx:id="cardsDeadPool" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cardsDeadPool" prefHeight="70.0" text="DeadPool">
+                        <VBox.margin>
+                           <Insets bottom="5.0" top="5.0" />
+                        </VBox.margin>
+                        <font>
+                           <Font name="Bell MT" size="20.0" />
+                        </font>
+                     </Button>
+                     <Button fx:id="cardsGemini" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cardsGemini" prefHeight="70.0" text="Gemini Game Over">
+                        <VBox.margin>
+                           <Insets bottom="5.0" top="5.0" />
+                        </VBox.margin>
+                        <font>
+                           <Font name="Bell MT" size="20.0" />
+                        </font>
+                     </Button>
+                     <Button fx:id="cardsKetchup" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cardsKetchup" prefHeight="70.0" text="Ketchup">
+                        <VBox.margin>
+                           <Insets bottom="5.0" top="5.0" />
+                        </VBox.margin>
+                        <font>
+                           <Font name="Bell MT" size="20.0" />
+                        </font>
+                     </Button>
+                     <Button fx:id="cardsTheOffice" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cardsTheOffice" prefHeight="70.0" text="The Office">
+                        <VBox.margin>
+                           <Insets bottom="5.0" top="5.0" />
+                        </VBox.margin>
+                        <font>
+                           <Font name="Bell MT" size="20.0" />
+                        </font>
+                     </Button>
+                     <Button fx:id="cardsTwiSins" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cardsTwiSins" prefHeight="70.0" text="TWI SINS">
+                        <VBox.margin>
+                           <Insets bottom="5.0" top="5.0" />
+                        </VBox.margin>
+                        <font>
+                           <Font name="Bell MT" size="20.0" />
+                        </font>
+                     </Button>
+                  </children>
+                  <HBox.margin>
+                     <Insets left="50.0" />
+                  </HBox.margin>
+               </VBox>
+               <VBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="250.0">
+                  <children>
+                     <Label alignment="CENTER" text="Amount of decks" textAlignment="CENTER">
+                        <font>
+                           <Font name="System Bold" size="23.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets />
+                        </VBox.margin>
+                     </Label>
+                     <Button fx:id="decks1" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="1">
+                        <font>
+                           <Font name="Bell MT" size="20.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                     </Button>
+                     <Button fx:id="decks2" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="2">
+                        <font>
+                           <Font name="Bell MT" size="20.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                     </Button>
+                     <Button fx:id="decks3" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="3">
+                        <font>
+                           <Font name="Bell MT" size="20.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                     </Button>
+                     <Button fx:id="decks4" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="4">
+                        <font>
+                           <Font name="Bell MT" size="20.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                     </Button>
+                     <Button fx:id="decks5" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="5">
+                        <font>
+                           <Font name="Bell MT" size="20.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                     </Button>
+                     <Button fx:id="decks6" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="6">
+                        <font>
+                           <Font name="Bell MT" size="20.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                     </Button>
+                     <Button fx:id="decks7" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="7">
+                        <font>
+                           <Font name="Bell MT" size="20.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                     </Button>
+                     <Button fx:id="decks8" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="8">
+                        <font>
+                           <Font name="Bell MT" size="20.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                     </Button>
+                  </children>
+                  <HBox.margin>
+                     <Insets left="50.0" />
+                  </HBox.margin>
+               </VBox>
             </children>
-         </VBox>
+         </HBox>
       </center>
    </BorderPane>
    <BorderPane fx:id="borderPaneGameOver" prefHeight="200.0" prefWidth="200.0" visible="false">
       <center>
-         <Button fx:id="restartButton" mnemonicParsing="false" onAction="#restart" prefHeight="400.0" prefWidth="400.0" textAlignment="CENTER" visible="false" BorderPane.alignment="CENTER">
-            <font>
-               <Font name="Berlin Sans FB Demi Bold" size="25.0" />
-            </font></Button>
+         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+               <Button fx:id="restartButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#restart" prefHeight="199.0" prefWidth="400.0" textAlignment="CENTER">
+                  <font>
+                     <Font name="Berlin Sans FB Demi Bold" size="25.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets top="15.0" />
+                  </VBox.margin>
+               </Button>
+               <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#backToMainMenu" prefWidth="400.0" text="Main Menu and Save">
+                  <font>
+                     <Font name="Berlin Sans FB Demi Bold" size="30.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets top="15.0" />
+                  </VBox.margin>
+               </Button>
+            </children>
+         </VBox>
       </center>
    </BorderPane>
 

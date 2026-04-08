@@ -6,13 +6,14 @@ import java.util.ArrayList;
 public class Player {
     private List<Card> hand = new ArrayList<>();
     private int chips;
-    private int wins;
+    private int wins = 0;
+    private int losses = 0;
     private boolean busted = false;
 
     public Player (int buyIn) {
         this.chips = buyIn;
-
     }
+    
     public boolean checkBust() {
         if (getMaxScore() > 21) {
             return true;
@@ -74,12 +75,20 @@ public class Player {
         return wins;
     }
 
+    public int getLosses() {
+        return losses;
+    }
+
     public void setWins(int wins) {
         this.wins = wins;
     }
 
     public void setChips(int chips) {
         this.chips = chips;
+    }
+
+    public void setLosses(int losses) {
+        this.losses = losses;
     }
 
     public void registerWin() {
@@ -89,6 +98,7 @@ public class Player {
     }
 
     public void registerLoss() {
+        losses += 1;
         chips -= 50;
     }
 
