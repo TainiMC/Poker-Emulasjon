@@ -199,7 +199,7 @@ public class AppController {
                 views[i].setImage(img);
                 if (!views[i].isVisible()) {
                     final int index = i;
-                    PauseTransition pause = new PauseTransition(Duration.millis(400* (index + 1)));
+                    PauseTransition pause = new PauseTransition(Duration.millis(400));
                     pause.setOnFinished(e -> {views[index].setVisible(true);}); 
                     pause.play();
                     }
@@ -221,8 +221,8 @@ public class AppController {
         if (player.checkBust()) {
             int playerLastCard = 500 + 400 * player.getHand().size();
             PauseTransition pause = new PauseTransition(Duration.millis(playerLastCard));
+            updateDisplay();
             pause.setOnFinished(e -> {
-                updateDisplay();
                 String result = table.showResult();
                 restartButton.setText(result);
                 restartButton.setVisible(true);
