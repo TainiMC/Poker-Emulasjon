@@ -71,6 +71,8 @@ public class AppController {
         borderPaneGame.setVisible(true);
         borderPaneSettings.setVisible(false);
         startButton.setVisible(true);
+        hitButton.setDisable(false);
+
 
         for (ImageView card : playerCards) {
             card.setVisible(false);
@@ -102,6 +104,9 @@ public class AppController {
         borderPaneGameOver.setVisible(false);
         hitButton.setVisible(false);
         standButton.setVisible(false);
+        hitButton.setDisable(false);
+
+        
         for (ImageView card : playerCards) {
             card.setVisible(false);
         }
@@ -182,6 +187,9 @@ public class AppController {
         winsLabel.setText("Wins: " + player.getWins());
         lossesLabel.setText("Losses: " + player.getLosses());
         chipsLabel.setText("Chips: " + player.getChips()+"$");
+        if (!player.checkBust()) {
+            hitButton.setDisable(false);
+        }
     }
 
     private void updateCardRow(List<Card> hand, ImageView[] views) {
@@ -208,7 +216,6 @@ public class AppController {
                 views[i].setVisible(false);
             }
         }
-    hitButton.setDisable(false);
     }
     
     
@@ -219,7 +226,7 @@ public class AppController {
         player.hit(table.getTableDeck());
 
         if (player.checkBust()) {
-            int playerLastCard = 500 + 400 * player.getHand().size();
+            int playerLastCard = 200 + 400 * player.getHand().size();
             PauseTransition pause = new PauseTransition(Duration.millis(playerLastCard));
             updateDisplay();
             pause.setOnFinished(e -> {
