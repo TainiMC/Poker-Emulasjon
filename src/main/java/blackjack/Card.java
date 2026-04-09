@@ -5,7 +5,7 @@ public class Card {
     private char suit;
     private String cardString;
     private boolean visible;
-    private int score;
+    private int score;          
 
     public Card (int value, char suit, boolean visible) {
         this.value = value;
