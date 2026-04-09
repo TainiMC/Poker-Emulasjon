@@ -63,6 +63,10 @@ public class Player {
         return hand;
     }
 
+    public void addCard(Card card) {
+        hand.add(card);
+    }
+
     public int getChips() {
         return chips;
     }

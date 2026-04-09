@@ -52,10 +52,6 @@ public class Table {
 
     }
 
-    public void askPlayers() {
-            playerList.get(0).hitOrStand(tableDeck);
-
-            }
 
     public void dealerDraw() {
         dealerHand.get(1).setVisible(); //Snu kort 2
@@ -88,6 +84,10 @@ public class Table {
     //Needed a getter for the dealers hand /Tim
     public List<Card> getDealerHand() {
         return dealerHand;
+    }
+
+    public void addCard(Card card) {
+        dealerHand.add(card);
     }
 
     public Deck getTableDeck() {
