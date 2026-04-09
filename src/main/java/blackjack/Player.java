@@ -3,7 +3,7 @@ package blackjack;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Player {
+public class Player implements Scoreable {
     private List<Card> hand = new ArrayList<>();
     private int chips;
     private int wins = 0;
@@ -44,19 +44,8 @@ public class Player {
         }
     }
 
-       public int getMaxScore() {
-        int score = hand.stream()
-            .mapToInt(Card::getValue)
-            .sum();
-        int aceScore = hand.stream()
-            .mapToInt(Card::returnAce)
-            .sum();
-
-        if ((score + aceScore) > 21) {
-            return score;
-        } else {
-            return score + aceScore;
-        }
+        public List<Card> getCards() {
+        return hand;
     }
 
     public List<Card> getHand() {
@@ -107,6 +96,7 @@ public class Player {
         int[] data = SaveManager.load();
         this.chips = data[0];
         this.wins = data[1];
+        this.losses = data[2];
             } catch (Exception e) {
               System.out.println("Load failed: " + e.getMessage());
         }

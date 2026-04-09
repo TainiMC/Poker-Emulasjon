@@ -15,7 +15,7 @@ import java.util.List;
  - Field for storing cards of the dealer
 
 */
-public class Table {
+public class Table implements Scoreable {
     private List<Player> playerList;
     private List<Card> dealerHand = new ArrayList<>();
     public Deck tableDeck; //Had to make this public so I can acces it //Tim
@@ -64,19 +64,8 @@ public class Table {
 
 
 
-    public int getMaxScore() {
-        int score = dealerHand.stream()
-            .mapToInt(Card::getValue)
-            .sum();
-        int aceScore = dealerHand.stream()
-            .mapToInt(Card::returnAce)
-            .sum();
-
-        if ((score + aceScore) <= 21) {
-            return score + aceScore;
-        } else {
-            return score;
-        }
+    public List<Card> getCards() {
+        return dealerHand;
     }
 
     
