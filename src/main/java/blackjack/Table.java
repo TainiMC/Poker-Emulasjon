@@ -95,7 +95,6 @@ public class Table {
     }
 
     public boolean checkBust() {
-
         if (getMaxScore() > 21) {
             return true;
 

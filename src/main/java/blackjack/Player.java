@@ -13,17 +13,13 @@ public class Player {
     public Player (int buyIn) {
         this.chips = buyIn;
     }
-    
+
     public boolean checkBust() {
         if (getMaxScore() > 21) {
             return true;
         } else {
             return false;
         }
-    }
-
-    public void hitOrStand(Deck deck) {
-
     }
 
     public void resetBusted() {
