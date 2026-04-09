@@ -192,6 +192,12 @@ public class AppController {
         }
     }
 
+    public void updateLabels() {
+        winsLabel.setText("Wins: " + player.getWins());
+        lossesLabel.setText("Losses: " + player.getLosses());
+        chipsLabel.setText("Chips: " + player.getChips()+"$");
+    }
+
     private void updateCardRow(List<Card> hand, ImageView[] views) {
         for (int i = 0; i < views.length; i++) {
             if (i < hand.size()) {
@@ -236,6 +242,7 @@ public class AppController {
                 borderPaneGameOver.setVisible(true);
                 mainMenuButton.setVisible(true);
                 SaveManager.save(player);
+                updateLabels();
             }); 
             pause.play();
         }
@@ -258,6 +265,7 @@ public class AppController {
             restartButton.setVisible(true);
             borderPaneGameOver.setVisible(true);
             mainMenuButton.setVisible(true);
+            updateLabels();
         }); 
         pause.play();
     }
