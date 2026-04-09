@@ -255,6 +255,7 @@ public class AppController {
         pause.play();
     }
 
+ //TO DO - Fix the labels for wins and losses so they update correctly when pressing stand and hit.
 
     //Cards Textures
     @FXML
