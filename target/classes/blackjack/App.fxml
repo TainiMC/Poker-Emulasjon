@@ -336,7 +336,7 @@
                            <Insets />
                         </VBox.margin>
                      </Label>
-                     <Button fx:id="decks1" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="1">
+                     <Button fx:id="decks1" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#decks1" prefHeight="70.0" text="1">
                         <font>
                            <Font name="Bell MT" size="20.0" />
                         </font>
@@ -344,7 +344,7 @@
                            <Insets top="5.0" />
                         </VBox.margin>
                      </Button>
-                     <Button fx:id="decks2" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="2">
+                     <Button fx:id="decks2" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#decks2" prefHeight="70.0" text="2">
                         <font>
                            <Font name="Bell MT" size="20.0" />
                         </font>
@@ -352,7 +352,7 @@
                            <Insets top="5.0" />
                         </VBox.margin>
                      </Button>
-                     <Button fx:id="decks3" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="3">
+                     <Button fx:id="decks3" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#decks3" prefHeight="70.0" text="3">
                         <font>
                            <Font name="Bell MT" size="20.0" />
                         </font>
@@ -360,7 +360,7 @@
                            <Insets top="5.0" />
                         </VBox.margin>
                      </Button>
-                     <Button fx:id="decks4" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="4">
+                     <Button fx:id="decks4" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#decks4" prefHeight="70.0" text="4">
                         <font>
                            <Font name="Bell MT" size="20.0" />
                         </font>
@@ -368,7 +368,7 @@
                            <Insets top="5.0" />
                         </VBox.margin>
                      </Button>
-                     <Button fx:id="decks5" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="5">
+                     <Button fx:id="decks5" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#decks5" prefHeight="70.0" text="5">
                         <font>
                            <Font name="Bell MT" size="20.0" />
                         </font>
@@ -376,7 +376,7 @@
                            <Insets top="5.0" />
                         </VBox.margin>
                      </Button>
-                     <Button fx:id="decks6" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="6">
+                     <Button fx:id="decks6" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#decks6" prefHeight="70.0" text="6">
                         <font>
                            <Font name="Bell MT" size="20.0" />
                         </font>
@@ -384,7 +384,7 @@
                            <Insets top="5.0" />
                         </VBox.margin>
                      </Button>
-                     <Button fx:id="decks7" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="7">
+                     <Button fx:id="decks7" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#decks7" prefHeight="70.0" text="7">
                         <font>
                            <Font name="Bell MT" size="20.0" />
                         </font>
@@ -392,7 +392,7 @@
                            <Insets top="5.0" />
                         </VBox.margin>
                      </Button>
-                     <Button fx:id="decks8" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cards2020" prefHeight="70.0" text="8">
+                     <Button fx:id="decks8" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#decks8" prefHeight="70.0" text="8">
                         <font>
                            <Font name="Bell MT" size="20.0" />
                         </font>
